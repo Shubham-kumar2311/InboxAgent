@@ -12,13 +12,9 @@ class Agents():
     def __init__(self):
         # LLM
         llama = ChatGroq(model_name="llama-3.3-70b-versatile", temperature=0.1)
-        gemini = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.1)
         
         # QA assistant chat
-# agents.py
-        embeddings = GoogleGenerativeAIEmbeddings(
-            model="text-embedding-004"  # ← remove the "models/" prefix
-        )
+        embeddings = GoogleGenerativeAIEmbeddings(model="text-embedding-004")
         vectorstore = Chroma(persist_directory="db", embedding_function=embeddings)
         retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 

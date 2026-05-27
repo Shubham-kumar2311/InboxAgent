@@ -34,7 +34,6 @@ credentials.json
 token.json
 
 # Local data / runtime
-data/
 db/
 *.sqlite3
 *.log

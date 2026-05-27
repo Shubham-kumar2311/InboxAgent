@@ -2,10 +2,8 @@ from colorama import Fore, Style
 from src.graph import Workflow
 from dotenv import load_dotenv
 
-# Load all env variables
 load_dotenv()
 
-# config 
 config = {'recursion_limit': 10}
 
 workflow = Workflow()
@@ -31,7 +29,6 @@ initial_state = {
     "trials": 0
 }
 
-# Run the automation
 print(Fore.GREEN + "Starting workflow..." + Style.RESET_ALL)
 for output in app.stream(initial_state, config):
     for key, value in output.items():
