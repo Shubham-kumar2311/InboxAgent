@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
 
 
-class GmailToolsClass:
+class GmailTools:
 
     def __init__(self):
         self.service = self._get_gmail_service()
@@ -189,7 +189,7 @@ class GmailToolsClass:
                 logger.exception(f"[gmail] parse failed: {parse_error}")
 
         try:
-            batch = BatchHttpRequest()
+            batch = self.service.new_batch_http_request()
             for msg_id in message_ids:
                 batch.add(
                     self.service.users()

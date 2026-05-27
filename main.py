@@ -4,10 +4,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-config = {'recursion_limit': 10}
+config = {'recursion_limit': 25}
 
 workflow = Workflow()
 app = workflow.app
+
+app.get_graph().draw_mermaid_png(output_file_path="workflow.png")
+
 
 initial_state = {
     "emails": [],
